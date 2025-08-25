@@ -18,7 +18,7 @@ html[data-theme] {
 }
 
 [data-theme="dark"] {
-    --bg-color: #0a0e1a;
+    --bg-color: #000000;
     --text-color: #f7fafc;
     --link-color: #cbd5e0;
     --border-color: #2d3748;
