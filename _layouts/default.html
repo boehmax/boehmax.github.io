@@ -5,6 +5,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ page.title }}</title>
 		
+		<!-- Prevent flash by setting theme immediately -->
+		<script>
+			(function() {
+				let savedTheme;
+				try {
+					savedTheme = localStorage.getItem('theme');
+				} catch (e) {
+					savedTheme = null;
+				}
+				
+				const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+				
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
+		
 		<!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 		
@@ -86,30 +103,20 @@
 				}
 			}
 
-			// Initialize theme on page load
+			// Initialize theme on page load (simplified since theme is already set)
 			function initTheme() {
 				const html = document.documentElement;
 				const toggleText = document.querySelector('.theme-toggle-text');
+				const currentTheme = html.getAttribute('data-theme');
 				
-				let savedTheme;
-				try {
-					savedTheme = localStorage.getItem('theme');
-				} catch (e) {
-					savedTheme = null;
-				}
-				
-				// Use saved theme or default to system preference
-				const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-				const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-				
-				html.setAttribute('data-theme', theme);
-				toggleText.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+				// Update button text to match current theme
+				toggleText.textContent = currentTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
 				
 				// Set appropriate syntax highlighting theme
 				const lightHighlight = document.getElementById('highlight-light');
 				const darkHighlight = document.getElementById('highlight-dark');
 				
-				if (theme === 'dark') {
+				if (currentTheme === 'dark') {
 					lightHighlight.disabled = true;
 					darkHighlight.disabled = false;
 				} else {
