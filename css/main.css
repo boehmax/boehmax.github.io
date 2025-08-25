@@ -1,35 +1,68 @@
+/* CSS Variables for theme switching */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #999999;
+    --border-color: #d5d5d5;
+    --accent-color: #2b6cb0;
+    --code-bg: #f8f9fa;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a202c;
+    --text-color: #e2e8f0;
+    --link-color: #a0aec0;
+    --border-color: #4a5568;
+    --accent-color: #63b3ed;
+    --code-bg: #2d3748;
+}
+
+/* Apply theme variables */
 body {
     margin: 60px auto;
     width: 70%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
 }
+
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
+
 a {
     text-decoration: none;
-    color: #999;
+    color: var(--link-color);
+    transition: color 0.2s ease;
 }
+
 a:hover {
     text-decoration: underline;
+    color: var(--accent-color);
 }
+
 h1 {
     font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+    color: var(--text-color);
 }
+
 p {
     font-size: 1.5em;
     line-height: 1.4em;
-    color: #333;
+    color: var(--text-color);
 }
+
 footer {
-    border-top: 1px solid #d5d5d5;
+    border-top: 1px solid var(--border-color);
     font-size: .8em;
 }
 
@@ -40,4 +73,103 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+}
+
+/* Dark mode toggle button */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin: 1rem 0;
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.3);
+}
+
+[data-theme="dark"] .theme-toggle:focus {
+    box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.3);
+}
+
+/* Code blocks and syntax highlighting */
+pre, code {
+    background-color: var(--code-bg);
+    border-radius: 4px;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+code {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.9em;
+}
+
+pre {
+    padding: 1rem;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Tables for scientific data */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 0.8rem;
+    text-align: left;
+}
+
+th {
+    background-color: var(--code-bg);
+    font-weight: bold;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid var(--accent-color);
+    margin: 1.5rem 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    background-color: var(--code-bg);
+    font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        width: 90%;
+        margin: 40px auto;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+    }
+    
+    p {
+        font-size: 1.3em;
+    }
+    
+    nav ul li, footer ul li {
+        margin-right: 15px;
+    }
 }
