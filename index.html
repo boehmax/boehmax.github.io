@@ -1,8 +1,43 @@
 ---
 layout: default
-title: Maximilian Böhm
+title: Maximilian Boehm
 ---
-<div class="blurb">
-    	<h1>Hi there, I'm Max!</h1>
-		<p>I am a scientist and data enthusiast that tries very hard. <em>I am still learning!</em> Shall we learn together? <a href="/about">Read more about how this blog...</a></p>
-</div><!-- /.blurb -->
+
+<div class="hero-section">
+    <h1>Maximilian Böhm</h1>
+    <h2 class="subtitle">Data Scientist & Biochemist</h2>
+    <p class="tagline">Exploring the intersection of computational methods and biological systems</p>
+</div>
+
+<div class="latest-posts">
+    <h3>Latest Posts</h3>
+    
+    {% for post in site.posts limit:3 %}
+        <article class="post-preview">
+            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+            <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+            <p class="post-excerpt">
+                {% if post.excerpt %}
+                    {{ post.excerpt | strip_html | truncatewords: 30 }}
+                {% else %}
+                    {{ post.content | strip_html | truncatewords: 30 }}
+                {% endif %}
+            </p>
+            <a href="{{ post.url }}" class="read-more">Read more →</a>
+        </article>
+    {% endfor %}
+    
+    {% if site.posts.size == 0 %}
+        <p class="no-posts">No posts yet. Check back soon!</p>
+    {% endif %}
+    
+    {% if site.posts.size > 3 %}
+        <p class="view-all"><a href="/blog">View all posts →</a></p>
+    {% endif %}
+</div>
+
+<div class="about-snippet">
+    <h3>About</h3>
+    <p>I'm passionate about using computational approaches to understand biological systems. Here you'll find insights on biochemistry, data analysis techniques, and other thoughts that croseed my mind while trying to finish my PhD.</p>
+    <a href="/about" class="read-more">Learn more about me →</a>
+</div>
