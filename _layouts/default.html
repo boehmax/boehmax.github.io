@@ -1,29 +1,155 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<li><a href="/about">About</a></li>
-	        		<li><a href="/cv">CV</a></li>
-	        		<li><a href="/blog">Blog</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ page.title }}</title>
+		
+		<!-- link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		
+		<!-- Syntax highlighting for code blocks -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="highlight-light">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="highlight-dark" disabled>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+		<script>hljs.highlightAll();</script>
+		
+		<!-- MathJax for LaTeX equations (for scientific content) -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<script>
+			window.MathJax = {
+				tex: {
+					inlineMath: [['$', '$'], ['\\(', '\\)']],
+					displayMath: [['$$', '$$'], ['\\[', '\\]']]
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/cv">CV</a></li>
+				<li><a href="/blog">Blog</a></li>
+			</ul>
+			<!-- Dark mode toggle button -->
+			<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+				<span class="theme-toggle-text">🌙 Dark Mode</span>
+			</button>
+		</nav>
+		
+		<div class="container">
 			{{ content }}
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-	        		<li><a href="mailto:boehmax97@gmail.com">email</a></li>
-	        		<li><a href="https://github.com/boehmax">github.com/boehmax</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+		</div><!-- /.container -->
+		
+		<footer>
+			<ul>
+				<li><a href="mailto:boehmax97@gmail.com">email</a></li>
+				<li><a href="https://github.com/boehmax">github.com/boehmax</a></li>
+			</ul>
+		</footer>
+
+		<!-- Dark mode JavaScript -->
+		<script>
+			// Dark mode functionality
+			function toggleTheme() {
+				const html = document.documentElement;
+				const currentTheme = html.getAttribute('data-theme');
+				const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+				const toggleText = document.querySelector('.theme-toggle-text');
+				
+				// Set theme
+				html.setAttribute('data-theme', newTheme);
+				
+				// Update button text
+				toggleText.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+				
+				// Switch syntax highlighting theme
+				const lightHighlight = document.getElementById('highlight-light');
+				const darkHighlight = document.getElementById('highlight-dark');
+				
+				if (newTheme === 'dark') {
+					lightHighlight.disabled = true;
+					darkHighlight.disabled = false;
+				} else {
+					lightHighlight.disabled = false;
+					darkHighlight.disabled = true;
+				}
+				
+				// Save preference
+				try {
+					localStorage.setItem('theme', newTheme);
+				} catch (e) {
+					// Continue without saving if localStorage unavailable
+				}
+			}
+
+			// Initialize theme on page load
+			function initTheme() {
+				const html = document.documentElement;
+				const toggleText = document.querySelector('.theme-toggle-text');
+				
+				let savedTheme;
+				try {
+					savedTheme = localStorage.getItem('theme');
+				} catch (e) {
+					savedTheme = null;
+				}
+				
+				// Use saved theme or default to system preference
+				const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+				
+				html.setAttribute('data-theme', theme);
+				toggleText.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+				
+				// Set appropriate syntax highlighting theme
+				const lightHighlight = document.getElementById('highlight-light');
+				const darkHighlight = document.getElementById('highlight-dark');
+				
+				if (theme === 'dark') {
+					lightHighlight.disabled = true;
+					darkHighlight.disabled = false;
+				} else {
+					lightHighlight.disabled = false;
+					darkHighlight.disabled = true;
+				}
+			}
+
+			// Initialize when ready
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initTheme);
+			} else {
+				initTheme();
+			}
+
+			// Listen for system theme changes
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+				try {
+					const savedTheme = localStorage.getItem('theme');
+					if (!savedTheme) {
+						const newTheme = e.matches ? 'dark' : 'light';
+						document.documentElement.setAttribute('data-theme', newTheme);
+						document.querySelector('.theme-toggle-text').textContent = 
+							newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+							
+						const lightHighlight = document.getElementById('highlight-light');
+						const darkHighlight = document.getElementById('highlight-dark');
+						
+						if (newTheme === 'dark') {
+							lightHighlight.disabled = true;
+							darkHighlight.disabled = false;
+						} else {
+							lightHighlight.disabled = false;
+							darkHighlight.disabled = true;
+						}
+					}
+				} catch (e) {
+					// Continue without auto-switching if localStorage unavailable
+				}
+			});
+		</script>
+	</body>
+</html>
