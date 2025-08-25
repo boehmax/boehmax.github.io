@@ -1,0 +1,61 @@
+experience:
+  - title: PhD Student
+    company: Uppsala University
+    location: Uppsala, Sweden
+    start: 2022
+    end: Present
+    highlights:
+      - to be added
+
+projects:
+  - name: Bioinformatic analysis of NiCODH
+    year: 2024
+    tagline: tba
+    url: tba
+    highlights:
+      - tba
+
+  - name: tba
+    year: tba
+    tagline: tba
+    url: tba
+    highlights:
+      - tba
+      - tba
+education:
+- degree: M.Sc. Molecular Science
+    school: Friedrich Alexander Unversity Erlangen-Nürnberg
+    start: 2019
+    end: 2021
+    details: Focus in Drug Design and Bioinorganic Chemsitry.
+
+  - degree: B.Sc. Molecular Science
+    school: Friedrich Alexander Unversity Erlangen-Nürnberg
+    start: 2018
+    end: 2021
+    details: Focus in Life Science and Organic Chemistry
+
+skills:
+  - Biochemsitry
+  - Bioinformatics
+  - Bioinorganic Chemsitry
+  - R
+  - Python
+  - Git
+  - Science Outreach
+
+publications:
+  - title: "Photosynthetic hydrogen production: Novel protocols, promising engineering approaches and application of semi-synthetic hydrogenases"
+    year: 2021
+    venue: Physiologia Plantarum
+    link: https://doi.org/10.1111/ppl.13428
+
+  - title: "A concept of dual-responsive prodrugs based on oligomerization-controlled reactivity of ester groups: an improvement of cancer cells versus neutrophils selectivity of camptothecin"
+    year: 2024
+    venue: RSC Medicinal Chemistry
+    link: https://doi.org/10.1039/D3MD00609C
+
+  - title: "Photobiocatalytic CO 2 reduction into CO by organic nanorod-carbon monoxide dehydrogenase assemblies: surfactant matters"
+    year: 2024
+    venue: Chemical Science
+    link: https://doi.org/10.1039/D4SC03154G
