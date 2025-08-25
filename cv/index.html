@@ -1,0 +1,91 @@
+---
+layout: default
+permalink: /cv/
+title: "CV"
+---
+
+<h1>Curriculum Vitae</h1>
+
+<section>
+  <h2>About Me</h2>
+  <p>{{ site.author.about }}</p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  {% assign jobs = site.data.cv.experience %}
+  {% if jobs %}
+    <ul>
+      {% for job in jobs %}
+      <li>
+        <strong>{{ job.title }}</strong>, {{ job.company }} ({{ job.start }} – {{ job.end | default: "Present" }})<br>
+        <em>{{ job.location }}</em>
+        {% if job.highlights %}
+          <ul>
+            {% for h in job.highlights %}<li>{{ h }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<section>
+  <h2>Projects</h2>
+  {% assign projects = site.data.cv.projects %}
+  {% if projects %}
+    <ul>
+      {% for p in projects %}
+      <li>
+        <strong>{{ p.name }}</strong> ({{ p.year }})<br>
+        {{ p.tagline }}
+        <ul>
+          {% if p.url %}<li>Repo/Link: <a href="{{ p.url }}">{{ p.url }}</a></li>{% endif %}
+          {% for h in p.highlights %}<li>{{ h }}</li>{% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<section>
+  <h2>Education</h2>
+  {% assign edu = site.data.cv.education %}
+  {% if edu %}
+    <ul>
+      {% for e in edu %}
+      <li>
+        <strong>{{ e.degree }}</strong>, {{ e.school }} ({{ e.start }} – {{ e.end }})<br>
+        {{ e.details }}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<section>
+  <h2>Skills</h2>
+  {% assign skills = site.data.cv.skills %}
+  {% if skills %}
+    <ul>
+      {% for s in skills %}<li>{{ s }}</li>{% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<section>
+  <h2>Publications & Awards</h2>
+  {% assign pubs = site.data.cv.publications %}
+  {% if pubs %}
+    <ul>
+      {% for pub in pubs %}
+      <li>
+        <strong>{{ pub.title }}</strong> ({{ pub.year }})<br>
+        {{ pub.venue }} {% if pub.link %}<a href="{{ pub.link }}">[link]</a>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
