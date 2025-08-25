@@ -188,3 +188,158 @@ blockquote {
         margin-right: 15px;
     }
 }
+
+/* Homepage Hero Section */
+.hero-section {
+    text-align: center;
+    margin: 3rem 0 4rem 0;
+    padding: 2rem 0;
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.8em;
+    font-weight: 300;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+}
+
+.tagline {
+    font-size: 1.2em;
+    color: var(--link-color);
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Latest Posts Section */
+.latest-posts {
+    margin: 3rem 0;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.latest-posts h3 {
+    font-size: 2em;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+}
+
+.post-preview {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-preview:last-child {
+    border-bottom: none;
+}
+
+.post-preview h4 {
+    font-size: 1.4em;
+    margin-bottom: 0.5rem;
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+}
+
+.post-preview h4 a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.post-preview h4 a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.post-date {
+    font-size: 0.9em;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.post-excerpt {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.read-more {
+    color: var(--accent-color);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* About Snippet */
+.about-snippet {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+.about-snippet h3 {
+    font-size: 2em;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+}
+
+.about-snippet p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Utility styles */
+.no-posts {
+    color: var(--link-color);
+    font-style: italic;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.view-all a {
+    color: var(--accent-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.view-all a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for homepage */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+    
+    .subtitle {
+        font-size: 1.5em;
+    }
+    
+    .tagline {
+        font-size: 1.1em;
+    }
+    
+    .post-preview {
+        padding: 1rem 0;
+    }
+}
