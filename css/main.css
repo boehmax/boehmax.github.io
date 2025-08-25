@@ -1,3 +1,12 @@
+/* To remove flashes */
+html:not([data-theme]) {
+    visibility: hidden;
+}
+
+html[data-theme] {
+    visibility: visible;
+}
+
 /* CSS Variables for theme switching */
 :root {
     --bg-color: #ffffff;
