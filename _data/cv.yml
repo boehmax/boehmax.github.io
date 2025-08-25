@@ -24,21 +24,21 @@ projects:
       - tba
 education:
   - degree: M.Sc. Molecular Science
-    school: Friedrich Alexander Unversity Erlangen-Nürnberg
+    school: FAU Erlangen-Nürnberg
     start: 2019
     end: 2021
-    details: Focus in Drug Design and Bioinorganic Chemistry.
+    details: Focus in Drug Design and Bioinorganic Chemistry. Grade: 1.0
 
   - degree: B.Sc. Molecular Science
-    school: Friedrich Alexander Unversity Erlangen-Nürnberg
-    start: 2018
-    end: 2021
-    details: Focus in Life Science and Organic Chemistry
+    school: FAU Erlangen-Nürnberg
+    start: 2016
+    end: 2019
+    details: Focus in Life Science and Organic Chemistry. Grade: 1.8
 
 skills:
-  - Biochemsitry
+  - Biochemistry
   - Bioinformatics
-  - Bioinorganic Chemsitry
+  - Bioinorganic Chemistry
   - R
   - Python
   - Git
