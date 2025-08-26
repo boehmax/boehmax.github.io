@@ -643,6 +643,77 @@ blockquote {
     color: var(--accent-color);
 }
 
+/* Casual Post Styles */
+.casual-post {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.casual-post .post-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.casual-post .post-title {
+    font-size: 2.5em;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.casual-post .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.9em;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+}
+
+.casual-post .mood {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.casual-post .post-tldr {
+    background: var(--bg-color);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+}
+
+.casual-post .post-content {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.casual-post .post-content p {
+    margin-bottom: 1.2em;
+}
+
+.casual-post .post-content h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 1.5em;
+}
+
+.casual-post .post-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+    font-size: 1.3em;
+}
+
 /* Enhanced Responsive Design */
 @media (max-width: 900px) {
     .apps-grid {
