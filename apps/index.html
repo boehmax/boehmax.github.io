@@ -1,0 +1,61 @@
+---
+layout: default
+title: Web Applications
+---
+
+<div class="apps-header">
+    <h1>Interactive Web Applications</h1>
+    <p class="apps-intro">A collection of Shiny applications I've built for data analysis, visualization, and scientific computing. Each app is designed to make complex analyses accessible through intuitive web interfaces.</p>
+</div>
+
+<div class="apps-grid">
+    {% assign featured_apps = site.data.shiny_apps | where: "featured", true %}
+    {% assign regular_apps = site.data.shiny_apps | where: "featured", false %}
+    {% assign all_apps = featured_apps | concat: regular_apps %}
+    
+    {% for app in all_apps %}
+    <article class="app-card {% if app.featured %}featured{% endif %}">
+        {% if app.image %}
+        <div class="app-image">
+            <img src="{{ app.image }}" alt="{{ app.title }} screenshot" loading="lazy">
+        </div>
+        {% endif %}
+        
+        <div class="app-content">
+            <h3 class="app-title">
+                <a href="{{ app.url }}" target="_blank" rel="noopener noreferrer">
+                    {{ app.title }}
+                    <span class="external-link">↗</span>
+                </a>
+            </h3>
+            
+            <p class="app-description">{{ app.description }}</p>
+            
+            {% if app.tags %}
+            <div class="app-tags">
+                {% for tag in app.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <div class="app-actions">
+                <a href="{{ app.url }}" target="_blank" rel="noopener noreferrer" class="launch-btn">
+                    Launch App
+                </a>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+    
+    {% if site.data.shiny_apps.size == 0 %}
+    <div class="no-apps">
+        <p>🚀 Apps coming soon! Check back later for interactive data analysis tools.</p>
+    </div>
+    {% endif %}
+</div>
+
+<div class="apps-footer">
+    <p><strong>Built with:</strong> R Shiny, plotly, DT, and various data science packages. All applications are hosted on shinyapps.io for reliable access.</p>
+    <p>Have questions about any of these apps or suggestions for new ones? <a href="mailto:boehmax97@gmail.com">Get in touch!</a></p>
+</div>
