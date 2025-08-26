@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Maximilian Launches Site"
+title: "I launched the site!"
 date: 2025-08-25
 ---
 
