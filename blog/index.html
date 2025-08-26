@@ -2,10 +2,61 @@
 layout: default
 title: Blog
 ---
-	<h1>{{ page.title }}</h1>
-	<ul class="posts">
 
-	  {% for post in site.posts %}
-	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-	  {% endfor %}
-	</ul>
+<div class="blog-header">
+	<h1>{{ page.title }}</h1>
+	<p class="blog-intro">Research insights, data analysis, and thoughts on biochemistry and bioinformatics</p>
+</div>
+
+<div class="posts-container">
+	{% if site.posts.size > 0 %}
+		{% for post in site.posts %}
+		<article class="post-item">
+			<div class="post-content">
+				<h3 class="post-title">
+					<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+				</h3>
+				
+				<div class="post-meta">
+					<time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+						{{ post.date | date: "%B %d, %Y" }}
+					</time>
+					{% if post.reading_time %}
+					<span class="reading-time">{{ post.reading_time }} min read</span>
+					{% endif %}
+				</div>
+				
+				{% if post.summary %}
+				<p class="post-summary">{{ post.summary }}</p>
+				{% elsif post.excerpt %}
+				<p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+				{% else %}
+				<p class="post-excerpt">{{ post.content | strip_html | truncatewords: 30 }}</p>
+				{% endif %}
+				
+				{% if post.categories %}
+				<div class="post-categories">
+					{% for category in post.categories %}
+					<span class="category">{{ category }}</span>
+					{% endfor %}
+				</div>
+				{% endif %}
+				
+				{% if post.tags %}
+				<div class="post-tags">
+					{% for tag in post.tags %}
+					<span class="tag">{{ tag }}</span>
+					{% endfor %}
+				</div>
+				{% endif %}
+				
+				<a href="{{ post.url }}" class="read-more">Read full post →</a>
+			</div>
+		</article>
+		{% endfor %}
+	{% else %}
+		<div class="no-posts">
+			<p>No posts yet. Check back soon for research insights and data analysis content!</p>
+		</div>
+	{% endif %}
+</div>
