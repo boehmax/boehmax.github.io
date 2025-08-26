@@ -9,12 +9,11 @@ title: Web Applications
 </div>
 
 <div class="apps-grid">
-    {% assign featured_apps = site.data.shiny_apps | where: "featured", true %}
-    {% assign regular_apps = site.data.shiny_apps | where: "featured", false %}
-    {% assign all_apps = featured_apps | concat: regular_apps %}
-    
-    {% for app in all_apps %}
-    <article class="app-card {% if app.featured %}featured{% endif %}">
+    {% assign featured_apps = site.data.shiny_apps | where: "featured", true | default: empty %}
+    {% assign regular_apps = site.data.shiny_apps | where: "featured", false | default: empty %}
+
+    {% for app in featured_apps %}
+    <article class="app-card featured">
         {% if app.image %}
         <div class="app-image">
             <img src="{{ app.image }}" alt="{{ app.title }} screenshot" loading="lazy">
@@ -28,9 +27,7 @@ title: Web Applications
                     <span class="external-link">↗</span>
                 </a>
             </h3>
-            
             <p class="app-description">{{ app.description }}</p>
-            
             {% if app.tags %}
             <div class="app-tags">
                 {% for tag in app.tags %}
@@ -38,7 +35,6 @@ title: Web Applications
                 {% endfor %}
             </div>
             {% endif %}
-            
             <div class="app-actions">
                 <a href="{{ app.url }}" target="_blank" rel="noopener noreferrer" class="launch-btn">
                     Launch App
@@ -47,8 +43,40 @@ title: Web Applications
         </div>
     </article>
     {% endfor %}
-    
-    {% if site.data.shiny_apps.size == 0 %}
+
+    {% for app in regular_apps %}
+    <article class="app-card">
+        {% if app.image %}
+        <div class="app-image">
+            <img src="{{ app.image }}" alt="{{ app.title }} screenshot" loading="lazy">
+        </div>
+        {% endif %}
+        
+        <div class="app-content">
+            <h3 class="app-title">
+                <a href="{{ app.url }}" target="_blank" rel="noopener noreferrer">
+                    {{ app.title }}
+                    <span class="external-link">↗</span>
+                </a>
+            </h3>
+            <p class="app-description">{{ app.description }}</p>
+            {% if app.tags %}
+            <div class="app-tags">
+                {% for tag in app.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="app-actions">
+                <a href="{{ app.url }}" target="_blank" rel="noopener noreferrer" class="launch-btn">
+                    Launch App
+                </a>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+
+    {% if site.data.shiny_apps == nil or site.data.shiny_apps.size == 0 %}
     <div class="no-apps">
         <p>🚀 Apps coming soon! Check back later for interactive data analysis tools.</p>
     </div>
