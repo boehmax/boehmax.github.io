@@ -3,7 +3,7 @@ layout: scientific-post
 title: "Understanding Carbon Monoxide Dehydrogenases: Ancient Enzymes for Modern Biotechnology"
 date: 2024-01-20
 categories: [research, review]
-tags: [biochemistry, enzymes, carbon-monoxide-dehydrogenase, computational-biology, protein-structure]
+tags: [biochemistry, enzymes, carbon-monoxide-dehydrogenase, computational-biology]
 summary: "An overview of carbon monoxide dehydrogenases (CODHs), their evolutionary significance, structural features, and potential biotechnological applications."
 reading_time: 8
 keywords: [CODH, enzyme evolution, metalloenzymes, computational biology, biotechnology]
