@@ -11,7 +11,10 @@ references:
   - "Ragsdale, S. W. (2004). Life with carbon monoxide. Critical Reviews in Biochemistry and Molecular Biology, 39(3), 165-195."
   - "Can, M., Armstrong, F. A., & Ragsdale, S. W. (2014). Structure, function, and mechanism of the nickel metalloenzymes, CO dehydrogenase, and acetyl-CoA synthase. Chemical Reviews, 114(8), 4149-4174."
   - "Techtmann, S. M., Lebedinsky, A. V., et al. (2012). Evidence for horizontal gene transfer of anaerobic carbon monoxide dehydrogenases. Frontiers in Microbiology, 3, 132."
-data_availability: "Protein structures referenced in this post are available from the Protein Data Bank (PDB). Sequence data can be accessed through NCBI GenBank."
+  - "M. Inoue, I. Nakamoto, K. Omae, T. Oguro, H. Ogata, T. Yoshida, Y. Sako, “Structural and Phylogenetic Diversity of Anaerobic Carbon-Monoxide Dehydrogenases” Front Microbiol 2018, 9, 3353."
+  - "M. Inoue, K. Omae, I. Nakamoto, R. Kamikawa, T. Yoshida, Y. Sako, “Biome-specific distribution of Ni-containing carbon monoxide dehydrogenases” Extremophiles 2022, 26, 9."
+  - "Y. A. Katayama, R. Kamikawa, T. Yoshida, “Phylogenetic diversity of putative nickel-containing carbon monoxide dehydrogenase-encoding prokaryotes in the human gut microbiome” Microbial Genomics 2024, 10, DOI 10.1099/mgen.0.001285."
+data_availability: "Protein structures referenced in this post are available from the Protein Data Bank (PDB). Sequence data can be accessed through NCBI GenBank."  
 ---
 
 ## Introduction
@@ -40,14 +43,17 @@ CODHs are found across diverse microbial lineages:
 | Bacteria | *Carboxydothermus hydrogenoformans* | Thermophilic |
 | Bacteria | *Moorella thermoacetica* | Acetogenic |
 
+Just to name a few!
+
 ## Structural Features
 
 ### Active Site Architecture
 
 The CODH active site contains a unique nickel-iron-sulfur cluster (NiFe₄S₄) known as the C-cluster. This sophisticated metallocenter enables the enzyme's remarkable catalytic efficiency:
 
+#### Such kinetics can be well analysed using python!
+
 ```python
-# Example: Calculating enzyme kinetics parameters
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -70,27 +76,11 @@ plt.title('CODH Enzyme Kinetics')
 plt.grid(True, alpha=0.3)
 plt.show()
 ```
+This blog will contain handy programing tips that will improve the life of Biochemists with R and Python!
 
 ### Computational Analysis
 
-Recent computational studies have revealed important insights about CODH structure-function relationships:
-
-```r
-# R code for analyzing CODH sequence conservation
-library(bio3d)
-library(ggplot2)
-
-# Example: Loading and analyzing CODH sequences
-codh_sequences <- read.fasta("codh_family.fasta")
-codh_alignment <- seqaln(codh_sequences)
-
-# Calculate conservation scores
-conservation <- conserv(codh_alignment)
-
-# Identify highly conserved regions (>80% conservation)
-conserved_positions <- which(conservation > 0.8)
-print(paste("Number of highly conserved positions:", length(conserved_positions)))
-```
+The phylogentic anlaysis of CODHs has helped us understand the structure function and genomic context function relationships better and better. Many papers have been published on this already!
 
 ## Biotechnological Applications
 
@@ -121,37 +111,18 @@ My research focuses on understanding the evolutionary mechanisms that have allow
 
 ## Computational Methods
 
-### Molecular Dynamics Simulations
+### Phylogenetic
 
-We use molecular dynamics (MD) simulations to understand CODH dynamics:
+We use comparative genomics and phylogenetic anlaysis to predict potential candiates for biotechnological applications.
 
-$$
-\frac{d^2\mathbf{r}_i}{dt^2} = \frac{\mathbf{F}_i}{m_i}
-$$
+## Biochemical and Biophysical methods
 
-Where $\mathbf{F}_i$ represents the force on atom $i$, calculated from potential energy functions.
-
-### Machine Learning Applications
-
-Machine learning approaches are increasingly important for:
-
-- Predicting enzyme stability from sequence
-- Identifying optimal mutation sites for engineering
-- Analyzing large-scale evolutionary patterns
+We express a variaty of CODHs in E. coli and explore their catalytic and spectroscopical features to further understand phylogentic diversity and what features can be used to predict well behaving CODHs for future carbon dioxide reducing applications.
 
 ## Conclusion
 
 Carbon monoxide dehydrogenases represent a perfect intersection of fundamental biochemistry and applied biotechnology. Their ancient origins, sophisticated catalytic mechanisms, and biotechnological potential make them fascinating subjects for computational and experimental investigation.
 
 Understanding these enzymes not only illuminates early life processes but also provides blueprints for developing sustainable biotechnologies. As computational tools continue to advance, we can expect even more exciting discoveries about these remarkable molecular machines.
-
-## Future Directions
-
-The next phase of CODH research will likely focus on:
-
-- **Directed evolution** approaches for improving stability and activity
-- **Systems biology** integration for understanding cellular context
-- **Synthetic biology** applications for industrial biotechnology
-- **Structural biology** advances revealing mechanistic details
 
 *This post provides an overview of current CODH research. For detailed experimental protocols and computational methods, please refer to the cited literature and feel free to contact me for collaboration opportunities.*
