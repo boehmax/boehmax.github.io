@@ -45,7 +45,14 @@
 	</head>
 	<body>
 		<nav>
-			<ul>
+			<!-- Mobile hamburger button -->
+			<button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			
+			<ul class="nav-menu">
 				<li><a href="/">Home</a></li>
 				<li><a href="/about">About</a></li>
 			    <!--- <li><a href="/cv">CV</a></li> -->
@@ -71,6 +78,15 @@
 
 		<!-- Dark mode JavaScript -->
 		<script>
+			// Mobile menu functionality
+			function toggleMobileMenu() {
+				const menuToggle = document.querySelector('.mobile-menu-toggle');
+				const navMenu = document.querySelector('.nav-menu');
+				
+				menuToggle.classList.toggle('active');
+				navMenu.classList.toggle('active');
+			}
+		
 			// Dark mode functionality
 			function toggleTheme() {
 				const html = document.documentElement;
