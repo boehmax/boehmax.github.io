@@ -56,7 +56,7 @@ new_post() {
     fi
     
     cd "$PROJECT_DIR"
-    ruby _scripts/new_post.rb "$1"
+    python3 _scripts/new_post.py "$1"
 }
 
 new_draft() {
@@ -67,7 +67,7 @@ new_draft() {
     fi
     
     cd "$PROJECT_DIR"
-    ruby _scripts/new_post.rb "$1" --draft
+    python3 _scripts/new_post.py "$1" --draft
 }
 
 publish_draft() {

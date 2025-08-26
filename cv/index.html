@@ -3,92 +3,141 @@ layout: default
 permalink: /cv/
 title: "CV"
 ---
-<h1>Curriculum Vitae</h1>
 
-<section>
-  <h2>About Me</h2>
-  <p>I am a PhD student at Uppsala University. My research spans from Bioinformatic, Biochemistry to Biophysic. My preferred programing language is R. I am also proficient with Python and Git.</p>
-</section>
+<div class="cv-container">
+  <header class="cv-header">
+    <h1>Maximilian Böhm</h1>
+    <p class="cv-subtitle">PhD Student in Biochemistry & Bioinformatics</p>
+    <div class="cv-contact">
+      <span>📧 <a href="mailto:boehmax97@gmail.com">boehmax97@gmail.com</a></span>
+      <span>🔗 <a href="https://github.com/boehmax">github.com/boehmax</a></span>
+      <span>🎓 Uppsala University, Sweden</span>
+    </div>
+  </header>
 
-<section>
-  <h2>Experience</h2>
-  {% assign jobs = site.data.cv.experience %}
-  {% if jobs %}
-    <ul>
-      {% for job in jobs %}
-      <li>
-        <strong>{{ job.title }}</strong>, {{ job.company }} ({{ job.start }} – {{ job.end | default: "Present" }})<br>
-        <em>{{ job.location }}</em>
-        {% if job.highlights %}
-          <ul>
-            {% for h in job.highlights %}<li>{{ h }}</li>{% endfor %}
-          </ul>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-</section>
+  <section class="cv-section">
+    <h2>About Me</h2>
+    <div class="cv-content">
+      <p>I am a PhD student at Uppsala University specializing in the intersection of Bioinformatics, Biochemistry, and Biophysics. My research focuses on understanding complex biological systems through computational and experimental approaches. I am proficient in R, Python, and Git, with a passion for translating scientific insights into practical applications.</p>
+    </div>
+  </section>
 
-<section>
-  <h2>Projects</h2>
-  {% assign projects = site.data.cv.projects %}
-  {% if projects %}
-    <ul>
-      {% for p in projects %}
-      <li>
-        <strong>{{ p.name }}</strong> ({{ p.year }})<br>
-        {{ p.tagline }}
-        <ul>
-          {% if p.url %}<li>Repo/Link: <a href="{{ p.url }}">{{ p.url }}</a></li>{% endif %}
-          {% for h in p.highlights %}<li>{{ h }}</li>{% endfor %}
-        </ul>
-      </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-</section>
+  <section class="cv-section">
+    <h2>Experience</h2>
+    <div class="cv-content">
+      {% assign jobs = site.data.cv.experience %}
+      {% if jobs %}
+        {% for job in jobs %}
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>{{ job.title }}</h3>
+            <span class="cv-period">{{ job.start }} – {{ job.end | default: "Present" }}</span>
+          </div>
+          <div class="cv-item-details">
+            <p class="cv-company">{{ job.company }}</p>
+            <p class="cv-location">📍 {{ job.location }}</p>
+            {% if job.highlights %}
+              <ul class="cv-highlights">
+                {% for h in job.highlights %}<li>{{ h }}</li>{% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
 
-<section>
-  <h2>Education</h2>
-  {% assign edu = site.data.cv.education %}
-  {% if edu %}
-    <ul>
-      {% for e in edu %}
-      <li>
-        <strong>{{ e.degree }}</strong>, {{ e.school }} ({{ e.start }} – {{ e.end }})<br>
-        {{ e.details }}
-      </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-</section>
+  <section class="cv-section">
+    <h2>Education</h2>
+    <div class="cv-content">
+      {% assign edu = site.data.cv.education %}
+      {% if edu %}
+        {% for e in edu %}
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>{{ e.degree }}</h3>
+            <span class="cv-period">{{ e.start }} – {{ e.end }}</span>
+          </div>
+          <div class="cv-item-details">
+            <p class="cv-company">{{ e.school }}</p>
+            <p class="cv-description">{{ e.details }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
 
-<section>
-  <h2>Skills</h2>
-  {% assign skills = site.data.cv.skills %}
-  {% if skills %}
-    <ul>
-      {% for s in skills %}<li>{{ s }}</li>{% endfor %}
-    </ul>
-  {% endif %}
-</section>
+  <section class="cv-section">
+    <h2>Research Projects</h2>
+    <div class="cv-content">
+      {% assign projects = site.data.cv.projects %}
+      {% if projects %}
+        {% for p in projects %}
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>{{ p.name }}</h3>
+            <span class="cv-period">{{ p.year }}</span>
+          </div>
+          <div class="cv-item-details">
+            <p class="cv-description">{{ p.tagline }}</p>
+            {% if p.url and p.url != "tba" %}
+              <p class="cv-link">🔗 <a href="{{ p.url }}">View Project</a></p>
+            {% endif %}
+            {% if p.highlights %}
+              <ul class="cv-highlights">
+                {% for h in p.highlights %}
+                  {% unless h == "tba" %}<li>{{ h }}</li>{% endunless %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
 
-<section>
-  <h2>Publications & Awards</h2>
-  {% assign pubs = site.data.cv.publications %}
-  {% if pubs %}
-    <ul>
-      {% for pub in pubs %}
-      <li>
-        <strong>{{ pub.title }}</strong> ({{ pub.year }})<br>
-        {{ pub.venue }} {% if pub.link %}<a href="{{ pub.link }}">[link]</a>{% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-</section>
+  <section class="cv-section">
+    <h2>Skills & Expertise</h2>
+    <div class="cv-content">
+      {% assign skills = site.data.cv.skills %}
+      {% if skills %}
+        <div class="cv-skills-grid">
+          {% for s in skills %}
+            <span class="cv-skill-tag">{{ s }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
 
-<footer>
-  <p><em>Last updated: {{ site.time | date: "%B %d, %Y" }}</em></p>
-</footer>
+  <section class="cv-section">
+    <h2>Publications & Awards</h2>
+    <div class="cv-content">
+      {% assign pubs = site.data.cv.publications %}
+      {% if pubs %}
+        {% for pub in pubs %}
+        <div class="cv-item cv-publication">
+          <div class="cv-item-header">
+            <h3>{{ pub.title }}</h3>
+            <span class="cv-period">{{ pub.year }}</span>
+          </div>
+          <div class="cv-item-details">
+            <p class="cv-venue">{{ pub.venue }}</p>
+            {% if pub.link %}
+              <p class="cv-link">📄 <a href="{{ pub.link }}" target="_blank">Read Publication</a></p>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
+
+  <footer class="cv-footer">
+    <p><em>Last updated: {{ site.time | date: "%B %d, %Y" }}</em></p>
+    <p class="cv-print-note">📄 <a href="javascript:window.print()">Print this CV</a></p>
+  </footer>
+</div>
