@@ -54,9 +54,10 @@ nav {
     padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    gap: 2rem;
 }
 
 nav ul, footer ul {
@@ -207,7 +208,7 @@ li ul, li ol {
 footer {
     border-top: 2px solid var(--border-color);
     margin-top: 4rem;
-    padding: 2rem 0 1rem 0;
+    padding: 1.5rem 0 0.8rem 0;
     text-align: center;
     font-size: 0.9em;
     background: var(--code-bg);
@@ -499,6 +500,7 @@ blockquote {
         flex-direction: column;
         align-items: stretch;
         position: relative;
+        gap: 0;
     }
     
     /* Show mobile hamburger button */
@@ -515,8 +517,9 @@ blockquote {
     .theme-toggle {
         align-self: flex-end;
         position: absolute;
-        top: 0;
+        top: 0.5rem;
         right: 0;
+        z-index: 1000;
     }
     
     /* Hide navigation menu initially on mobile */
@@ -525,12 +528,14 @@ blockquote {
         flex-direction: column;
         gap: 0.5rem;
         text-align: center;
-        width: 100%;
+        width: calc(100% - 1rem);
+        max-width: calc(100vw - 3rem);
         background-color: var(--bg-color);
         border: 1px solid var(--border-color);
         border-radius: 6px;
         padding: 1rem;
         margin-top: 3rem;
+        margin-left: 0.5rem;
         box-shadow: 0 4px 6px var(--shadow);
     }
     
@@ -1291,6 +1296,42 @@ html {
 .blog-footer a {
     color: var(--accent-color);
     font-weight: 500;
+}
+
+/* Unified Page Header Styles (for About, Apps, and other pages) */
+.page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+}
+
+.page-header h1 {
+    font-size: 3em;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-intro {
+    font-size: 1.2em;
+    color: var(--link-color);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* Responsive page headers */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2.2em;
+    }
+    
+    .page-intro {
+        font-size: 1.1em;
+    }
 }
 
 /* Legacy blog post listing support */
