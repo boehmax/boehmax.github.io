@@ -8,56 +8,56 @@ title: Blog
 	<p class="blog-intro">Exploring the fascinating world of biochemistry, data science, and scientific research. Here you'll find insights, analyses, and thoughts from my PhD journey.</p>
 </div>
 
-<div class="posts-container">
-	{% if site.posts.size > 0 %}
-		{% for post in site.posts %}
-			<article class="post-card">
-				<div class="post-card-content">
-					<header class="post-card-header">
-						<h2 class="post-card-title">
-							<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-						</h2>
-						<div class="post-card-meta">
-							<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
-							{% if post.categories and post.categories.size > 0 %}
-								<span class="post-card-categories">
-									{% for category in post.categories %}
-										<span class="category">{{ category }}</span>
-									{% endfor %}
-								</span>
-							{% endif %}
-						</div>
-					</header>
-					
-					{% if post.excerpt %}
-						<div class="post-card-excerpt">
-							{{ post.excerpt | strip_html | truncatewords: 25 }}
-						</div>
-					{% endif %}
-					
-					{% if post.tags and post.tags.size > 0 %}
-						<div class="post-card-tags">
-							{% for tag in post.tags limit:3 %}
-								<span class="tag">#{{ tag }}</span>
-							{% endfor %}
-							{% if post.tags.size > 3 %}
-								<span class="tag more-tags">+{{ post.tags.size | minus: 3 }} more</span>
-							{% endif %}
-						</div>
-					{% endif %}
-					
-					<footer class="post-card-footer">
-						<a href="{{ post.url }}" class="read-more-btn">Read Article →</a>
-					</footer>
-				</div>
-			</article>
-		{% endfor %}
-	{% else %}
-		<div class="no-posts">
-			<h2>No posts yet!</h2>
-			<p>Check back soon for insights on biochemistry and data science.</p>
+<div class="blog-layout">
+	<aside class="blog-sidebar">
+		<h3>Filter by Tag</h3>
+		<div class="tag-filter">
+			<button class="filter-tag active" data-tag="all">All Posts</button>
+			{% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+			{% for tag in all_tags %}
+				{% unless tag == empty %}
+					<button class="filter-tag" data-tag="{{ tag | strip }}">{{ tag | strip }}</button>
+				{% endunless %}
+			{% endfor %}
 		</div>
-	{% endif %}
+	</aside>
+
+	<div class="posts-container">
+		{% if site.posts.size > 0 %}
+			{% for post in site.posts %}
+				<article class="post-card" data-tags="{{ post.tags | join: ',' }}">
+					<div class="post-card-content">
+						<header class="post-card-header">
+							<h2 class="post-card-title">
+								<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+							</h2>
+							<div class="post-card-meta">
+								<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
+								{% if post.categories and post.categories.size > 0 %}
+									<span class="post-card-categories">
+										{% for category in post.categories %}
+											<span class="category">{{ category }}</span>
+										{% endfor %}
+									</span>
+								{% endif %}
+							</div>
+						</header>
+						
+						{% if post.excerpt %}
+							<div class="post-card-excerpt">
+								{{ post.excerpt | strip_html | truncatewords: 20 }}
+							</div>
+						{% endif %}
+					</div>
+				</article>
+			{% endfor %}
+		{% else %}
+			<div class="no-posts">
+				<h2>No posts yet!</h2>
+				<p>Check back soon for insights on biochemistry and data science.</p>
+			</div>
+		{% endif %}
+	</div>
 </div>
 
 {% if site.posts.size > 5 %}
@@ -65,3 +65,32 @@ title: Blog
 		<p>Interested in a specific topic? <a href="mailto:boehmax97@gmail.com">Drop me a line</a> and suggest what you'd like to read about!</p>
 	</div>
 {% endif %}
+
+<script>
+// Tag filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+	const filterButtons = document.querySelectorAll('.filter-tag');
+	const postCards = document.querySelectorAll('.post-card');
+	
+	filterButtons.forEach(button => {
+		button.addEventListener('click', function() {
+			const selectedTag = this.getAttribute('data-tag');
+			
+			// Update active button
+			filterButtons.forEach(btn => btn.classList.remove('active'));
+			this.classList.add('active');
+			
+			// Filter posts
+			postCards.forEach(card => {
+				const cardTags = card.getAttribute('data-tags');
+				
+				if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
+					card.style.display = 'block';
+				} else {
+					card.style.display = 'none';
+				}
+			});
+		});
+	});
+});
+</script>
