@@ -1,3 +1,33 @@
 name: Maximilian Böhm
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+
+# Site settings
+title: "Maximilian Böhm - Data Scientist & Biochemist"
+description: "Exploring data to learn about biological systems"
+url: "https://boehmax.github.io"
+author: "Maximilian Böhm"
+email: "boehmax97@gmail.com"
+
+# Build settings
+highlighter: rouge
+
+# Collections for better organization
+collections:
+  drafts:
+    output: false
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Maximilian Böhm"
+      categories: ["science", "data"]
+
+# Development settings
+incremental: true
+livereload: true
+show_drafts: false
