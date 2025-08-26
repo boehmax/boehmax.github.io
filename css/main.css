@@ -497,29 +497,29 @@ blockquote {
     
     nav {
         margin-bottom: 2rem;
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         position: relative;
         gap: 0;
+        padding: 0.5rem 0;
     }
     
     /* Show mobile hamburger button */
     .mobile-menu-toggle {
         display: flex;
-        align-self: flex-start;
-        position: absolute;
-        top: 0.5rem;
-        left: 0;
+        position: static;
         z-index: 1001;
+        order: 1;
     }
     
     /* Position theme toggle on mobile */
     .theme-toggle {
-        align-self: flex-end;
-        position: absolute;
-        top: 0.5rem;
-        right: 0;
+        position: static;
         z-index: 1000;
+        order: 3;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
     }
     
     /* Hide navigation menu initially on mobile */
@@ -528,15 +528,20 @@ blockquote {
         flex-direction: column;
         gap: 0.5rem;
         text-align: center;
-        width: calc(100% - 1rem);
-        max-width: calc(100vw - 3rem);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: auto;
+        max-width: none;
         background-color: var(--bg-color);
         border: 1px solid var(--border-color);
         border-radius: 6px;
         padding: 1rem;
-        margin-top: 3rem;
-        margin-left: 0.5rem;
+        margin-top: 0.5rem;
         box-shadow: 0 4px 6px var(--shadow);
+        z-index: 999;
+        order: 2;
     }
     
     /* Show navigation menu when toggled */
@@ -589,15 +594,125 @@ blockquote {
     }
 }
 
-/* Extra small screens */
+/* Extra small screens - iPhone 13 mini and similar */
 @media (max-width: 480px) {
     body {
         padding: 0.5rem;
         font-size: 14px;
     }
     
+    nav {
+        padding: 0.3rem 0;
+    }
+    
+    .mobile-menu-toggle {
+        width: 24px;
+        height: 20px;
+        padding: 0.3rem;
+    }
+    
+    .theme-toggle {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    /* Make mobile menu even more compact */
+    nav ul.nav-menu {
+        padding: 0.8rem;
+        margin-top: 0.3rem;
+        border-radius: 4px;
+        left: 0.2rem;
+        right: 0.2rem;
+    }
+    
+    nav ul.nav-menu li {
+        margin-bottom: 0.4rem;
+    }
+    
+    nav ul.nav-menu a {
+        padding: 0.5rem;
+        display: block;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+    }
+    
+    nav ul.nav-menu a:hover {
+        background-color: var(--border-color);
+    }
+    
     .hero-section {
         padding: 1.5rem 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+    
+    .subtitle {
+        font-size: 1.2em;
+    }
+    
+    .tagline {
+        font-size: 1em;
+    }
+    
+    .post-preview {
+        padding: 0.8rem 0;
+    }
+    
+    h1 {
+        font-size: 1.6em;
+    }
+    
+    h2 {
+        font-size: 1.4em;
+    }
+    
+    h3 {
+        font-size: 1.2em;
+    }
+    
+    /* CV specific mobile adjustments */
+    .cv-container {
+        padding: 0.8rem;
+        margin: 0 0.2rem;
+    }
+    
+    .cv-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .cv-subtitle {
+        font-size: 1rem;
+    }
+    
+    .cv-contact {
+        gap: 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .cv-item {
+        padding: 0.8rem;
+    }
+    
+    .cv-item-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .cv-period {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .cv-skills-grid {
+        gap: 0.5rem;
+    }
+    
+    .cv-skill-tag {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
     }
     
     .hero-section h1 {
@@ -906,6 +1021,308 @@ blockquote {
 /* Smooth scrolling for anchor links */
 html {
     scroll-behavior: smooth;
+}
+
+/* Professional CV Styles */
+.cv-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.cv-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.cv-header h1 {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.cv-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.cv-contact {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    color: var(--text-color-light);
+}
+
+.cv-contact span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cv-contact a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.cv-contact a:hover {
+    text-decoration: underline;
+}
+
+.cv-section {
+    margin-bottom: 2.5rem;
+}
+
+.cv-section h2 {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+}
+
+.cv-content {
+    margin-left: 0.5rem;
+}
+
+.cv-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    transition: box-shadow 0.2s ease;
+}
+
+.cv-item:hover {
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.cv-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cv-item-header h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin: 0;
+    font-weight: 600;
+    flex: 1;
+}
+
+.cv-period {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.cv-company {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+}
+
+.cv-location {
+    color: var(--text-color-light);
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.cv-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+.cv-venue {
+    font-style: italic;
+    color: var(--text-color-light);
+    margin: 0 0 0.5rem 0;
+}
+
+.cv-link {
+    margin: 0.5rem 0;
+}
+
+.cv-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cv-link a:hover {
+    text-decoration: underline;
+}
+
+.cv-highlights {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.cv-highlights li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.cv-skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.cv-skill-tag {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.cv-skill-tag:hover {
+    transform: translateY(-2px);
+}
+
+.cv-publication {
+    border-left: 4px solid var(--accent-color);
+}
+
+.cv-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+}
+
+.cv-print-note {
+    margin-top: 1rem;
+}
+
+.cv-print-note a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.cv-print-note a:hover {
+    text-decoration: underline;
+}
+
+/* CV Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cv-container {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .cv-header h1 {
+        font-size: 2rem;
+    }
+    
+    .cv-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .cv-contact {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+    
+    .cv-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .cv-period {
+        align-self: flex-start;
+    }
+    
+    .cv-skills-grid {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cv-container {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+    
+    .cv-item {
+        padding: 1rem;
+    }
+    
+    .cv-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* CV Print Styles */
+@media print {
+    .cv-container {
+        box-shadow: none;
+        border: none;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .cv-item {
+        border: 1px solid #ddd;
+        box-shadow: none;
+        break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+    
+    .cv-section {
+        break-inside: avoid;
+    }
+    
+    .cv-skill-tag {
+        border: 1px solid #333;
+        color: #333;
+        background: white;
+    }
+    
+    .cv-period {
+        border: 1px solid #333;
+        color: #333;
+        background: white;
+    }
+    
+    .cv-print-note {
+        display: none;
+    }
+    
+    a {
+        color: #333 !important;
+    }
 }
 
 /* Enhanced Post Layout Styles */
