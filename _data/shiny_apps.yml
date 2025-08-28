@@ -1,4 +1,11 @@
 # Add your Shiny apps here - the page will automatically update!
+# Template for adding new apps:
+# - title: "Your App Name"
+#   url: "https://your-app-url.com"
+#   description: "Brief description of what your app does and why it's useful."
+#   image: "/images/app-screenshot.png"  # optional
+#   tags: ["tag1", "tag2", "tag3"]  # optional
+#   featured: false  # set to true to highlight it
 
 - title: "How balanced is your Bib?"
   url: "https://boehmax.shinyapps.io/how-balanced-is-your-bib/"
@@ -7,24 +14,16 @@
   tags: ["data", "research"]
   featured: false
 
-- title: "Plate Activity Data converter "
+- title: "Plate Activity Data converter"
   url: "https://boehmax.shinyapps.io/plate_activity_data_converter/"
-  description: "A app that will convert your activity (absorbance over time) data gathered from a Magellon Pro plate reader experiment in a more user friendly format."
+  description: "An app that will convert your activity (absorbance over time) data gathered from a Magellon Pro plate reader experiment into a more user friendly format."
   # no image for this one
   tags: ["data science", "instrument", "plotting"]
   featured: true
   
 - title: "Cuvett Activity Data converter "
   url: "https://boehmax.shinyapps.io/activity_data_converter/"
-  description: "A app that will convert your activity (absorbance over time) data gathered from a Magellon Pro cuvett experiment in a more user friendly format."
+  description: "An app that will convert your activity (absorbance over time) data gathered from a Magellon Pro cuvett experiment into a more user friendly format."
   # no image for this one
   tags: ["data science", "instrument", "plotting"]
   featured: false
-
-# Template for adding new apps:
-# - title: "Your App Name"
-#   url: "https://your-app-url.com"
-#   description: "Brief description of what your app does and why it's useful."
-#   image: "/images/app-screenshot.png"  # optional
-#   tags: ["tag1", "tag2", "tag3"]  # optional
-#   featured: false  # set to true to highlight it
