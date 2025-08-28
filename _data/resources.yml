@@ -12,44 +12,45 @@
 #   blog_post: "/blog/2023/01/01/resource-review-title"  # optional - link to detailed review
 
 # Biochemistry Resources
-- title: "Lehninger Principles of Biochemistry"
-  author: "David L. Nelson, Michael M. Cox"
-  url: "https://www.macmillanlearning.com/college/us/product/Lehninger-Principles-of-Biochemistry/p/1319108245"
-  description: "The gold standard textbook for biochemistry. Comprehensive coverage of metabolic pathways, protein structure, and cellular processes."
-  type: "book"
-  topic: "biochemistry"
-  year: 2017
 
-- title: "Biochemistry - Jeremy Berg"
+- title: "Stryer Biochemistry"
   author: "Jeremy M. Berg, John L. Tymoczko, Gregory J. Gatto Jr., Lubert Stryer"
-  url: "https://www.macmillanlearning.com/college/us/product/Biochemistry/p/1319114652"
+  url: "https://link.springer.com/book/10.1007/978-3-662-54620-8"
   description: "Excellent biochemistry textbook with clear explanations and beautiful illustrations. Great for understanding enzyme mechanisms."
   type: "book"
   topic: "biochemistry"
-  year: 2019
+  year: 2018
 
-- title: "MIT 7.05 Biochemistry"
+- title: "Biological Chemistry II"
   author: "MIT OpenCourseWare"
-  url: "https://ocw.mit.edu/courses/7-05-biochemistry-spring-2020/"
+  url: "https://ocw.mit.edu/courses/5-08j-biological-chemistry-ii-spring-2016/"
   description: "Free MIT biochemistry course with video lectures, problem sets, and exams. Excellent for self-study."
   type: "course"
   topic: "biochemistry"
-  year: 2020
+  year: 2016
+
+- title: "Intro to Chemical Biology"
+  author: "UCI Open"
+  url: "https://www.youtube.com/watch?v=wJGR5Y-Qqac&list=PLqOZ6FD_RQ7nT_YuhXKJVEDPjGvj5Lspa"
+  description: "Free UCI biochemistry course with video lectures. Excellent for self-study, comes with a book that is also nice."
+  type: "course"
+  topic: "biochemistry"
+  year: 2015
 
 # Bioinformatics Resources
-- title: "Bioinformatics and Functional Genomics"
-  author: "Jonathan Pevsner"
-  url: "https://www.wiley.com/en-us/Bioinformatics+and+Functional+Genomics%2C+3rd+Edition-p-9781118581780"
-  description: "Comprehensive introduction to bioinformatics covering sequence analysis, phylogenetics, and genomics."
+- title: "Bioinformatics Data Skills"
+  author: "Vince Buffalo"
+  url: "https://vincebuffalo.com/book/"
+  description: "Very nice book for anyone starting to do Bioinformatics and need some tips and tricks from the computer side. Higly recommend!"
   type: "book"
   topic: "bioinformatics"
   year: 2015
 
-- title: "Rosalind - Learn Bioinformatics Through Problem Solving"
-  author: "Rosalind Team"
-  url: "https://rosalind.info"
+- title: "Understanding Bioinformatics"
+  author: "Marketa Zvelebil, Jeremy O. Baum"
+  url: "https://www.taylorfrancis.com/books/mono/10.1201/9780203852507/understanding-bioinformatics-marketa-zvelebil-jeremy-baum"
   description: "Interactive platform for learning bioinformatics through coding challenges. Perfect for hands-on practice."
-  type: "website"
+  type: "book"
   topic: "bioinformatics"
 
 - title: "BLAST: Basic Local Alignment Search Tool"
@@ -60,54 +61,18 @@
   topic: "bioinformatics"
 
 # Data Science Resources
-- title: "R for Data Science"
-  author: "Hadley Wickham, Garrett Grolemund"
-  url: "https://r4ds.had.co.nz/"
-  description: "The definitive guide to data science with R. Free online book covering tidyverse, visualization, and modeling."
-  type: "book"
-  topic: "data-science"
-  year: 2017
-
-- title: "Python for Data Analysis"
-  author: "Wes McKinney"
-  url: "https://wesmckinney.com/book/"
-  description: "Comprehensive guide to data analysis with Python using pandas, NumPy, and other essential libraries."
-  type: "book"
-  topic: "data-science"
-  year: 2022
-
-- title: "StatQuest with Josh Starmer"
-  author: "Josh Starmer"
-  url: "https://www.youtube.com/c/joshstarmer"
-  description: "Excellent YouTube channel explaining statistics and machine learning concepts clearly and intuitively."
-  type: "video"
+- title: "Stu Hunter Teaches Statistic"
+  author: "JMP"
+  url: "https://www.youtube.com/watch?v=NoVlRAq0Uxs&list=PL335F9F2DE78A358B"
+  description: "Excellent introduction to statistic."
+  type: "course"
   topic: "statistics"
+  year: 1966
 
 # Programming Resources
-- title: "The R Book"
-  author: "Michael J. Crawley"
-  url: "https://www.wiley.com/en-us/The+R+Book%2C+2nd+Edition-p-9780470973929"
-  description: "Comprehensive reference for R programming. Covers everything from basics to advanced statistical modeling."
-  type: "book"
-  topic: "programming"
-  year: 2012
 
-- title: "Automate the Boring Stuff with Python"
-  author: "Al Sweigart"
-  url: "https://automatetheboringstuff.com/"
-  description: "Practical introduction to Python programming. Free online book perfect for scientists learning automation."
-  type: "book"
-  topic: "programming"
-  year: 2019
 
 # Research Methods and General Science
-- title: "The Craft of Research"
-  author: "Wayne C. Booth, Gregory G. Colomb, Joseph M. Williams"
-  url: "https://press.uchicago.edu/ucp/books/book/chicago/C/bo23521678.html"
-  description: "Essential guide to conducting and writing research. Valuable for any scientist or graduate student."
-  type: "book"
-  topic: "general"
-  year: 2016
 
 - title: "Nature Methods"
   author: "Nature Publishing Group"
@@ -115,3 +80,27 @@
   description: "Leading journal for new methods and techniques in biological research. Essential for staying current."
   type: "website"
   topic: "general"
+  
+- title: "Current Protocols"
+  author: "Nature Publishing Group"
+  url: "https://currentprotocols.onlinelibrary.wiley.com/"
+  description: "Many usefull protocols. Many Universities are not subscript to this Journal, though."
+  type: "website"
+  topic: "general"
+  
+# Data Visualisation
+- title: "Creating more effective crafts"
+  author: "Naomi B. Robbins"
+  url: "https://onlinelibrary.wiley.com/doi/book/10.1002/9780471698180#aboutBook-pane"
+  description: "Really good effective book to make your graphs cleaner and more effective with lots of visual examples. Very quick and nice read with immediat applications."
+  type: "book"
+  topic: "data-vis"
+  year: 2004
+
+- title: "the functional art"
+  author: "Alberto Cairo"
+  url: "https://books.google.se/books/about/The_Functional_Art.html?id=xwjhh6Wu-VUC&redir_esc=y"
+  description: "Excellent introduction to concepts of creating beautiful infographics with lots of examples and profiles."
+  type: "book"
+  topic: "data-vis"
+  year: 2012
