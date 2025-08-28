@@ -81,6 +81,36 @@
   type: "tool"
   topic: "bioinformatics"
 
+- title: "VMD"
+  author: "Humphrey, W., Dalke, A. and Schulten, K."
+  url: "https://www.ks.uiuc.edu/Research/vmd/"
+  description: "Free molecular visualisation program. It is an alternative to [PyMol](https://github.com/schrodinger/pymol-open-source) and [Chimera](https://www.cgl.ucsf.edu/chimera/) that is a bit more clunky but maybe you enjoy it more."
+  type: "tool"
+  topic: "bioinformatics"
+
+- title: "awk"
+  author: "Alfred V. Aho, Peter J. Weinberger, and Brian W. Kernighan"
+  url: "https://www.gnu.org/software/gawk/manual/gawk.html"
+  description: "Extremly useful programing language to quickly brows through data/files. Check out [this blog post](https://reasoniamhere.com/2013/09/16/awk-gtf-how-to-analyze-a-transcriptome-like-a-pro-part-1/) to get started!"
+  type: "tool"
+  topic: "bioinformatics"
+
+- title: "Bioanorganische Chemie"
+  author: "Wolfgang Kaim , Brigitte Schwederski "
+  url: "https://link.springer.com/book/10.1007/978-3-663-01605-2"
+  description: "Zur Funktion chemischer Elemente in Lebensprozessen. Leider nur auf Deutsch erhältlich und mittlerweile etwas outdated, aber bisher das beste BioAC Buch was ich bisher gelesen habe."
+  type: "book"
+  topic: "biochemistry"
+  year: 2005
+
+- title: "Wirkstoffdesign"
+  author: "Gerhard Klebe"
+  url: "https://link.springer.com/book/10.1007/978-3-662-67209-9"
+  description: "Entwurf und Wirkung von Arzneistoffen. Sehr gute Literatur zu Wirkstoffdesign! Hab die aktuelle Ausgabe nicht gesehen, aber die vorherige war sehr gut. Leider wieder nur auf deutsch, soweit ich weiß."
+  type: "book"
+  topic: "Chemistry"
+  year: 2005
+
 # Data Science Resources
 - title: "Stu Hunter Teaches Statistic"
   author: "JMP"
