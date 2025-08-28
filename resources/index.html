@@ -1,1 +1,171 @@
+---
+layout: default
+title: Learning Resources
+---
 
+<div class="page-header">
+    <h1>Learning Resources</h1>
+    <p class="page-intro">A curated collection of books, videos, papers, and tools that have helped me become a better biochemist and bioinformatician. Organized by topic and material type for easy browsing.</p>
+</div>
+
+<div class="resources-layout">
+    <aside class="resources-sidebar">
+        <h3>Filter by Topic</h3>
+        <div class="topic-filter">
+            <button class="filter-topic active" data-topic="all">All Topics</button>
+            {% assign all_topics = site.data.resources | map: 'topic' | uniq | sort %}
+            {% for topic in all_topics %}
+                <button class="filter-topic" data-topic="{{ topic }}">{{ topic | replace: '-', ' ' | capitalize }}</button>
+            {% endfor %}
+        </div>
+        
+        <h3>Filter by Type</h3>
+        <div class="type-filter">
+            <button class="filter-type active" data-type="all">All Types</button>
+            {% assign all_types = site.data.resources | map: 'type' | uniq | sort %}
+            {% for type in all_types %}
+                <button class="filter-type" data-type="{{ type }}">{{ type | capitalize }}</button>
+            {% endfor %}
+        </div>
+    </aside>
+
+    <div class="resources-container">
+        {% if site.data.resources and site.data.resources.size > 0 %}
+            {% assign grouped_resources = site.data.resources | group_by: 'topic' | sort: 'name' %}
+            
+            {% for group in grouped_resources %}
+                <section class="topic-section" data-topic="{{ group.name }}">
+                    <h2 class="topic-title">{{ group.name | replace: '-', ' ' | capitalize }}</h2>
+                    
+                    {% assign types_in_topic = group.items | map: 'type' | uniq | sort %}
+                    {% for type in types_in_topic %}
+                        {% assign resources_of_type = group.items | where: 'type', type %}
+                        {% if resources_of_type.size > 0 %}
+                            <div class="type-group" data-type="{{ type }}">
+                                <h3 class="type-title">{{ type | capitalize }}s</h3>
+                                <div class="resources-grid">
+                                    {% for resource in resources_of_type %}
+                                        <article class="resource-card" data-topic="{{ resource.topic }}" data-type="{{ resource.type }}">
+                                            <div class="resource-content">
+                                                <h4 class="resource-title">
+                                                    {% if resource.url %}
+                                                        <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">
+                                                            {{ resource.title }}
+                                                            <span class="external-link">↗</span>
+                                                        </a>
+                                                    {% else %}
+                                                        {{ resource.title }}
+                                                    {% endif %}
+                                                </h4>
+                                                
+                                                {% if resource.author %}
+                                                    <p class="resource-author">by {{ resource.author }}</p>
+                                                {% endif %}
+                                                
+                                                <p class="resource-description">{{ resource.description }}</p>
+                                                
+                                                <div class="resource-meta">
+                                                    <span class="resource-type-badge">{{ resource.type }}</span>
+                                                    <span class="resource-topic-badge">{{ resource.topic | replace: '-', ' ' }}</span>
+                                                    {% if resource.year %}
+                                                        <span class="resource-year">({{ resource.year }})</span>
+                                                    {% endif %}
+                                                </div>
+                                                
+                                                {% if resource.blog_post %}
+                                                    <div class="resource-blog-link">
+                                                        <a href="{{ resource.blog_post }}" class="blog-review-link">📝 Read my detailed review</a>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </article>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </section>
+            {% endfor %}
+        {% else %}
+            <div class="no-resources">
+                <p>📚 Resources coming soon! Check back later for curated learning materials.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="resources-footer">
+    <p><strong>💡 Tip:</strong> Many of these resources are freely available online. Don't hesitate to explore and find what works best for your learning style!</p>
+    <p>Have a resource suggestion? <a href="mailto:boehmax97@gmail.com?subject=Resource Suggestion">Send me your recommendations</a> and I'll consider adding them to the collection!</p>
+</div>
+
+<script>
+// Resource filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const topicButtons = document.querySelectorAll('.filter-topic');
+    const typeButtons = document.querySelectorAll('.filter-type');
+    const resourceCards = document.querySelectorAll('.resource-card');
+    const topicSections = document.querySelectorAll('.topic-section');
+    const typeGroups = document.querySelectorAll('.type-group');
+    
+    let activeTopicFilter = 'all';
+    let activeTypeFilter = 'all';
+    
+    function filterResources() {
+        // Show/hide topic sections
+        topicSections.forEach(section => {
+            const sectionTopic = section.getAttribute('data-topic');
+            const shouldShowSection = activeTopicFilter === 'all' || activeTopicFilter === sectionTopic;
+            section.style.display = shouldShowSection ? 'block' : 'none';
+        });
+        
+        // Show/hide individual resource cards
+        resourceCards.forEach(card => {
+            const cardTopic = card.getAttribute('data-topic');
+            const cardType = card.getAttribute('data-type');
+            
+            const matchesTopic = activeTopicFilter === 'all' || activeTopicFilter === cardTopic;
+            const matchesType = activeTypeFilter === 'all' || activeTypeFilter === cardType;
+            
+            card.style.display = (matchesTopic && matchesType) ? 'block' : 'none';
+        });
+        
+        // Show/hide type groups based on whether they have visible cards
+        typeGroups.forEach(group => {
+            const groupType = group.getAttribute('data-type');
+            const groupTopic = group.closest('.topic-section').getAttribute('data-topic');
+            
+            const shouldShowGroup = (activeTopicFilter === 'all' || activeTopicFilter === groupTopic) &&
+                                   (activeTypeFilter === 'all' || activeTypeFilter === groupType);
+            
+            group.style.display = shouldShowGroup ? 'block' : 'none';
+        });
+    }
+    
+    // Topic filter handlers
+    topicButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            activeTopicFilter = this.getAttribute('data-topic');
+            
+            // Update active button
+            topicButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            filterResources();
+        });
+    });
+    
+    // Type filter handlers
+    typeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            activeTypeFilter = this.getAttribute('data-type');
+            
+            // Update active button
+            typeButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            filterResources();
+        });
+    });
+});
+</script>
