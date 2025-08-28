@@ -60,6 +60,27 @@
   type: "tool"
   topic: "bioinformatics"
 
+- title: "SeqKit"
+  author: "Wei Shen"
+  url: "https://bioinf.shenwei.me/seqkit/"
+  description: "A handy cross-platform and ultrafast toolkit for FASTA/Q file manipulation."
+  type: "tool"
+  topic: "bioinformatics"
+
+- title: "IQ-Tree"
+  author: "Diep Thi Hoang, Heiko Schmidt, Jana Trifinopoulos, Minh Bui"
+  url: "https://iqtree.github.io/doc/Tutorial"
+  description: "A great free program to creat Phylogenetic trees."
+  type: "tool"
+  topic: "bioinformatics"
+
+- title: "FastTree"
+  author: "Morgan Price"
+  url: "https://morgannprice.github.io/fasttree/"
+  description: "Approximately-Maximum-Likelihood Trees for Large Alignments. Good when you need a tree, fast."
+  type: "tool"
+  topic: "bioinformatics"
+
 # Data Science Resources
 - title: "Stu Hunter Teaches Statistic"
   author: "JMP"
