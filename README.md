@@ -121,6 +121,22 @@ Add new Shiny apps to `_data/shiny_apps.yml`:
   featured: true
 ```
 
+### Resources Section
+Add new learning resources to `_data/resources.yml`:
+
+```yaml
+- title: "Resource Title"
+  author: "Author Name"
+  url: "https://resource-url.com"
+  description: "Brief description of the resource and why it's valuable."
+  type: "book"  # book, video, paper, course, tool, website
+  topic: "biochemistry"  # biochemistry, bioinformatics, data-science, statistics, programming, general
+  year: 2023  # optional
+  blog_post: "/blog/2023/01/01/resource-review-title"  # optional - link to detailed review
+```
+
+Resources are automatically organized by topic and type with dual filtering functionality.
+
 ## 🛠️ Technical Details
 
 ### Built With
