@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Udpates to webpage"
+title: "Updates to webpage"
 date: 2025-08-29
 categories: [personal]
 tags: [github, blog]
