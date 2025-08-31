@@ -1405,53 +1405,58 @@ html {
 }
 
 .post-footer {
-    border-top: 2px solid var(--border-color);
-    padding-top: 2rem;
-    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 3rem;
 }
 
 .post-navigation {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+}
+
+.nav-prev, .nav-next {
+    flex: 1;
+    max-width: 40%;
+}
+
+.nav-center {
+    flex: 0 0 auto;
+    text-align: center;
+    color: var(--link-color);
+    opacity: 0.5;
+}
+
+.post-nav-placeholder {
+    font-size: 1.2em;
+    user-select: none;
 }
 
 .prev-post, .next-post {
-    flex: 1;
-    padding: 1rem;
-    background: var(--code-bg);
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 500;
+    font-size: 0.9em;
     transition: all 0.2s ease;
-    min-width: 200px;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .prev-post:hover, .next-post:hover {
     background: var(--accent-color);
     color: white;
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--shadow-hover);
+    border-color: var(--accent-color);
 }
 
 .next-post {
     text-align: right;
-}
-
-.post-share {
-    text-align: center;
-    padding: 1.5rem;
-    background: var(--code-bg);
-    border-radius: 8px;
-    font-style: italic;
-}
-
-.post-share a {
-    color: var(--accent-color);
-    font-weight: 500;
 }
 
 /* Post content enhancements */
@@ -1515,10 +1520,29 @@ html {
     
     .post-navigation {
         flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    
+    .nav-prev, .nav-next {
+        max-width: 100%;
+    }
+    
+    .nav-center {
+        order: 2;
+        margin: 0.5rem 0;
+    }
+    
+    .nav-prev {
+        order: 1;
+    }
+    
+    .nav-next {
+        order: 3;
     }
     
     .next-post {
-        text-align: left;
+        text-align: center;
     }
 }
 
