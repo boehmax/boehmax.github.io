@@ -1,15 +1,12 @@
 ---
 layout: post
-title: "How to Start a GitHub Repository for Lab Protocols"
+title: "🧪 How to Start a GitHub Repository for Lab Protocols"
 date: 2025-10-24
 categories: [lab]
 tags: [github, protocol]
 excerpt: "Keeping track of your lab protocols is challanging. Git(Hub) can help you with that! Let me show you how..."
 math: false  # Enable MathJax for equations
 ---
-
-# 🧪 How to Start a GitHub Repository for Lab Protocols
-
 ## 🧭 Why bother
 Creating a GitHub repository for lab protocols helps make your research more **organized, transparent, and reproducible**. Instead of protocols being buried in notebooks or scattered across emails, GitHub keeps everything versioned, searchable, and shareable. You can track updates, collaborate with labmates in real time, and ensure everyone is always using the latest, most accurate procedures. It’s a simple step that saves time, reduces errors, and strengthens your lab’s collective knowledge. [Chen et al. (2025)](https://doi.org/10.1371/journal.pbio.3003029) recently published a very interesting article on that matter.
 
@@ -136,9 +133,9 @@ And now that they are online, you might be able to motivate your co-workers to h
 ## Read more
 There are many people already doing the exact thing, so now that you have the basics down, try get inspired by other peoples work! Here are some protocol repositories I found:
 
-- https://github.com/mjmlab/protocols
-- https://gallowaylabmit.github.io/protocols/en/latest/ (they went the extra mile and turned it into a web page, but its the same principle)
-- https://github.com/boehmax/protocols (my protocols of course)
+- [https://github.com/mjmlab/protocols](https://github.com/mjmlab/protocols)
+- [https://gallowaylabmit.github.io/protocols/en/latest/](https://gallowaylabmit.github.io/protocols/en/latest/) (they went the extra mile and turned it into a web page, but its the same principle)
+- [https://github.com/boehmax/protocols](https://github.com/boehmax/protocols) (my protocols hehe)
 
 Don't stress yourself if your layouts are not perfect, or your protocols are not fully complete. It's already great of you that you try it out! Let it grow naturally and revise older layouts and protocols once you are more experienced and have the time for it.
 
