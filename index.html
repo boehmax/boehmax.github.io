@@ -1,37 +1,14 @@
----
-layout: default
-title: Maximilian Boehm
----
-
-<div class="hero-section">
-    <h1>Maximilian Böhm, M.Sc.</h1>
-    <h2 class="subtitle">Data Scientist & Biochemist</h2>
-    <p class="tagline">Exploring data to learn about biological systems</p>
-</div>
-
-<div class="latest-posts">
-    <h3>Latest Posts</h3>
-    
-    {% for post in site.posts limit:3 %}
-        <article class="post-preview">
-            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
-            <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
-            <p class="post-excerpt">
-                {% if post.excerpt %}
-                    {{ post.excerpt | strip_html | truncatewords: 30 }}
-                {% else %}
-                    {{ post.content | strip_html | truncatewords: 30 }}
-                {% endif %}
-            </p>
-            <a href="{{ post.url }}" class="read-more">Read more →</a>
-        </article>
-    {% endfor %}
-    
-    {% if site.posts.size == 0 %}
-        <p class="no-posts">No posts yet. Check back soon!</p>
-    {% endif %}
-    
-    {% if site.posts.size > 3 %}
-        <p class="view-all"><a href="/blog">View all posts →</a></p>
-    {% endif %}
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=https://boehmax.org/" />
+    <script>
+      window.location.href = "https://boehmax.org/";
+    </script>
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <p>If you are not redirected automatically, follow this 
+    <a href="https://boehmax.org/">link to the new site</a>.</p>
+  </body>
+</html>
